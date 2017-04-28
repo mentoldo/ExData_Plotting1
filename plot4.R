@@ -1,3 +1,10 @@
+## Getting data
+fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+download.file(fileURL, "household_power_consumption.zip")
+if(!dir.exists("./data")) dir.create("./data")
+unzip("household_power_consumption.zip", exdir = "./data/")
+file.remove("household_power_consumption.zip")
+
 ## Reading and Cleaning Data
 # Reading data. Only read the rows corresponding from the date 2007-02-01 to 2007-02-02
 colnames <- read.table("./data/household_power_consumption.txt", sep = ";", nrows = 1, stringsAsFactors = FALSE)
